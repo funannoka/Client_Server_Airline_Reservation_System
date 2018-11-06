@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>SQLite C/C++ Tutorial</title>
+<meta name="description" content="SQLite C/C++ Tutorial - Learn SQLite from basic to advanced covering database programming clauses command functions administration queries and usage along with PHP, PERL, C, C++ and JAVA in simple steps. This tutorial takes you starting from basic to advance SQLite concepts." />
+<meta name="keywords" content="Learning, SQLite, Programming, Database, Clauses, Commands, Functions, Administration, Queries, Simple, Steps, Basic, Advanced, Concepts." />
+<base href="https://www.tutorialspoint.com/" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="fb:app_id" content="471319149685276" />
+<meta property="og:site_name" content="www.tutorialspoint.com" />
+<meta name="robots" content="index, follow"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+<script type="text/javascript" src="/theme/js/script-min-v4.js"></script>
+<link rel="stylesheet" href="/theme/css/style-min.css">
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #003b57 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #003b57 !important;}
+.submenu-item{ border-bottom: 2px solid #003b57 !important; border-top: 2px solid #003b57 !important }
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+<body onload="prettyPrint()">
+<div class="wrapLoader">
+   <div class="imgLoader">
+      <img  src="/images/loading-cg.gif" alt="" width="70" height="70" />
+   </div>
+</div>
+<header>
+   <div class="container">			
+      <h1 class="logo">
+      <a href="index.htm" title="tutorialspoint">
+      <img alt="tutorialspoint" src="/sqlite/images/logo.png">
+      </a>
+      </h1>			
+      <nav>
+         <ul class="nav nav-pills nav-top">
+            <li><a href="/about/about_careers.htm" style="background: #fffb09; font-weight: bold;"><i class="icon icon-suitcase"></i> Jobs</a></li>
+            <li> <a href="https://www.send18.com"><i class="fa fa-send"></i> &nbsp;Send18</a> </li>
+            <li> <a href="https://www.tutorialspoint.com/whiteboard.htm"><img src="theme/css/icons/image-editor.png" alt="Whiteboard" title="Whiteboard"> &nbsp;Whiteboard</a> </li>
+            <li> <a href="https://www.tutorialspoint.com/netmeeting.php"><i class="fa-camera"></i> &nbsp;Net Meeting</a> </li>
+            <li> <a href="/online_dev_tools.htm"> <i class="dev-tools-menu" style="opacity:.5"></i> Tools </a> </li>
+            <li> <a href="/articles/index.php"><i class="icon icon-file-text-o"></i> &nbsp;Articles</a> </li>            
+            <li class="top-icons">
+              <ul class="social-icons">
+              <li class="facebook"><a href="https://www.facebook.com/tutorialspointindia" target="_blank" data-placement="bottom" title="tutorialspoint @ Facebook">Facebook</a></li>
+              <li class="googleplus"><a href="https://plus.google.com/u/0/116678774017490391259/posts" target="_blank" data-placement="bottom" title="tutorialspoint @ Google+">Google+</a></li>
+              <li class="twitter"><a href="https://www.twitter.com/tutorialspoint" target="_blank" data-placement="bottom" title="tutorialspoint @ Twitter">Twitter</a></li>
+              <li class="linkedin"><a href="https://www.linkedin.com/company/tutorialspoint" target="_blank" data-placement="bottom" title="tutorialspoint @ Linkedin">Linkedin</a></li>
+              <li class="youtube"><a href="https://www.youtube.com/channel/UCVLbzhxVTiTLiVKeGV7WEBg" target="_blank" data-placement="bottom" title="tutorialspoint YouTube">YouTube</a></li>
+              </ul>
+           </li>
+         </ul>
+      </nav>
+         <!-- search code here  --> 
+      <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style="top: 24px!important"> <i class="icon icon-bars"></i> </button>
+   </div>
+   <div class="navbar nav-main">
+      <div class="container">
+         <nav class="nav-main mega-menu">
+            <ul class="nav nav-pills nav-main" id="mainMenu">
+               <li class="dropdown no-sub-menu"> <a class="dropdown" href="index.htm"><i class="icon icon-home"></i> Home</a> </li>   
+               <li class="dropdown" id="liTL"><a class="dropdown" href="javascript:void(0);"><span class="tut-lib"> Tutorials Library <i class="fa-caret-down"></i></span></a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="codingground.htm"><i class="fa-code"></i> Coding Ground </a> </li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="tutor_connect/index.php"><i class="fa-user"> </i> Tutor Connect</a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="videotutorials/index.htm"><i class="fa-toggle-right"></i> Videos </a></li>
+               <li class="dropdown no-sub-menu">
+                  <div class="searchform-popup">
+                     <input class="header-search-box" type="text" id="search-string" name="q" placeholder="Search your favorite tutorials..." onfocus="if (this.value == 'Search your favorite tutorials...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search your favorite tutorials...';}" autocomplete="off">
+                     <div class="magnifying-glass"><i class="icon-search"></i> Search </div>
+                 </div>
+               </li>
+            </ul>
+         </nav>
+         <div class="submenu-item sub-main-menu" id="top-sub-menu"></div>
+         
+      </div>
+   </div>	
+</header>
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+<div class="col-md-2">
+<aside class="sidebar">
+<div class="mini-logo">
+<img src="/sqlite/images/sqlite-mini-logo.jpg" alt="SQLite Tutorial" />
+</div>
+<ul class="nav nav-list primary left-menu" >
+<li class="heading">SQLite Tutorial</li>
+<li><a target="_top" href="/sqlite/index.htm" >SQLite - Home</a></li>
+<li><a target="_top" href="/sqlite/sqlite_overview.htm" >SQLite - Overview</a></li>
+<li><a target="_top" href="/sqlite/sqlite_installation.htm" >SQLite - Installation</a></li>
+<li><a target="_top" href="/sqlite/sqlite_commands.htm" >SQLite - Commands</a></li>
+<li><a target="_top" href="/sqlite/sqlite_syntax.htm" >SQLite - Syntax</a></li>
+<li><a target="_top" href="/sqlite/sqlite_data_types.htm" >SQLite - Data Types</a></li>
+<li><a target="_top" href="/sqlite/sqlite_create_database.htm" >SQLite - Create Database</a></li>
+<li><a target="_top" href="/sqlite/sqlite_attach_database.htm" >SQLite - Attach Database</a></li>
+<li><a target="_top" href="/sqlite/sqlite_detach_database.htm" >SQLite - Detach Database</a></li>
+<li><a target="_top" href="/sqlite/sqlite_create_table.htm" >SQLite - Create Table</a></li>
+<li><a target="_top" href="/sqlite/sqlite_drop_table.htm" >SQLite - Drop Table</a></li>
+<li><a target="_top" href="/sqlite/sqlite_insert_query.htm" >SQLite - Insert Query</a></li>
+<li><a target="_top" href="/sqlite/sqlite_select_query.htm" >SQLite - Select Query</a></li>
+<li><a target="_top" href="/sqlite/sqlite_operators.htm" >SQLite - Operators</a></li>
+<li><a target="_top" href="/sqlite/sqlite_expressions.htm" >SQLite - Expressions</a></li>
+<li><a target="_top" href="/sqlite/sqlite_where_clause.htm" >SQLite - Where Clause</a></li>
+<li><a target="_top" href="/sqlite/sqlite_and_or_clauses.htm" >SQLite - AND &amp; OR Clauses</a></li>
+<li><a target="_top" href="/sqlite/sqlite_update_query.htm" >SQLite - Update Query</a></li>
+<li><a target="_top" href="/sqlite/sqlite_delete_query.htm" >SQLite - Delete Query</a></li>
+<li><a target="_top" href="/sqlite/sqlite_like_clause.htm" >SQLite - Like Clause</a></li>
+<li><a target="_top" href="/sqlite/sqlite_glob_clause.htm" >SQLite - Glob Clause</a></li>
+<li><a target="_top" href="/sqlite/sqlite_limit_clause.htm" >SQLite - Limit Clause</a></li>
+<li><a target="_top" href="/sqlite/sqlite_order_by.htm" >SQLite - Order By</a></li>
+<li><a target="_top" href="/sqlite/sqlite_group_by.htm" >SQLite - Group By</a></li>
+<li><a target="_top" href="/sqlite/sqlite_having_clause.htm" >SQLite - Having Clause</a></li>
+<li><a target="_top" href="/sqlite/sqlite_distinct_keyword.htm" >SQLite - Distinct Keyword</a></li>
+</ul>
+<ul class="nav nav-list primary left-menu" >
+<li class="heading">Advanced SQLite</li>
+<li><a target="_top" href="/sqlite/sqlite_pragma.htm" >SQLite - PRAGMA</a></li>
+<li><a target="_top" href="/sqlite/sqlite_constraints.htm" >SQLite - Constraints</a></li>
+<li><a target="_top" href="/sqlite/sqlite_using_joins.htm" >SQLite - Joins</a></li>
+<li><a target="_top" href="/sqlite/sqlite_unions_clause.htm" >SQLite - Unions Clause</a></li>
+<li><a target="_top" href="/sqlite/sqlite_null_values.htm" >SQLite - NULL Values</a></li>
+<li><a target="_top" href="/sqlite/sqlite_alias_syntax.htm" >SQLite - Alias Syntax</a></li>
+<li><a target="_top" href="/sqlite/sqlite_triggers.htm" >SQLite - Triggers</a></li>
+<li><a target="_top" href="/sqlite/sqlite_indexes.htm" >SQLite - Indexes</a></li>
+<li><a target="_top" href="/sqlite/sqlite_indexed_by.htm" >SQLite - Indexed By</a></li>
+<li><a target="_top" href="/sqlite/sqlite_alter_command.htm" >SQLite - Alter Command</a></li>
+<li><a target="_top" href="/sqlite/sqlite_truncate_table.htm" >SQLite - Truncate Table</a></li>
+<li><a target="_top" href="/sqlite/sqlite_views.htm" >SQLite - Views</a></li>
+<li><a target="_top" href="/sqlite/sqlite_transactions.htm" >SQLite - Transactions</a></li>
+<li><a target="_top" href="/sqlite/sqlite_sub_queries.htm" >SQLite - Sub Queries</a></li>
+<li><a target="_top" href="/sqlite/sqlite_using_autoincrement.htm" >SQLite -  Autoincrement</a></li>
+<li><a target="_top" href="/sqlite/sqlite_injection.htm" >SQLite - Injection</a></li>
+<li><a target="_top" href="/sqlite/sqlite_explain.htm" >SQLite - Explain</a></li>
+<li><a target="_top" href="/sqlite/sqlite_vacuum.htm" >SQLite - Vacuum</a></li>
+<li><a target="_top" href="/sqlite/sqlite_date_time.htm" >SQLite - Date &amp; Time</a></li>
+<li><a target="_top" href="/sqlite/sqlite_useful_functions.htm" >SQLite - Useful Functions</a></li>
+</ul>
+<ul class="nav nav-list primary left-menu" >
+<li class="heading">SQLite Interfaces</li>
+<li><a target="_top" href="/sqlite/sqlite_c_cpp.htm" >SQLite - C/C++</a></li>
+<li><a target="_top" href="/sqlite/sqlite_java.htm" >SQLite - Java</a></li>
+<li><a target="_top" href="/sqlite/sqlite_php.htm" >SQLite - PHP</a></li>
+<li><a target="_top" href="/sqlite/sqlite_perl.htm" >SQLite - Perl</a></li>
+<li><a target="_top" href="/sqlite/sqlite_python.htm" >SQLite - Python</a></li>
+</ul>
+<ul class="nav nav-list primary left-menu" >
+<li class="heading">SQL Useful Resources</li>
+<li><a target="_top" href="/sqlite/sqlite_quick_guide.htm" >SQLite - Quick Guide</a></li>
+<li><a target="_top" href="/sqlite/sqlite_useful_resources.htm" >SQLite - Useful Resources</a></li>
+<li><a target="_top" href="/sqlite/sqlite_discussion.htm" >SQLite - Discussion</a></li>
+</ul>
+<ul class="nav nav-list primary push-bottom left-menu special">
+<li class="sreading">Selected Reading</li>
+<li><a target="_top" href="/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="/questions_and_answers.htm">Questions and Answers</a></li>
+<li><a target="_top" href="/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="/hr_interview_questions/index.htm">HR Interview Questions</a></li>
+<li><a target="_top" href="/computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="/computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+</aside>
+</div>
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+<div class="col-md-7 middle-col">
+<h1>SQLite C/C++ Tutorial</h1>
+<div class="topgooglead">
+<hr />
+<div style="padding-bottom:5px;padding-left:10px;">Advertisements</div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "image";
+google_ad_channel = "";
+//--></script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js"> 
+</script>
+</div>
+<hr />
+<div class="pre-btn">
+<a href="/sqlite/sqlite_useful_functions.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="/sqlite/sqlite_java.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+</div>
+<div class="clearer"></div>
+<hr />
+<h2>Installation</h2>
+<p>Before we start using SQLite in our C/C++ programs, we need to make sure that we have SQLite library set up on the machine. You can check SQLite Installation chapter to understand installation process.</p>
+<h2>C/C++ Interface APIs</h2>
+<p>Following are important C&amp;C++ / SQLite interface routines which can suffice your requirement to work with SQLite database from your C/C++ program. If you are looking for a more sophisticated application, then you can look into SQLite official documentation.</p>
+<table class="table table-bordered">
+<tr><th>S.N.</th><th>API &amp; Description</th></tr>
+<tr><td>1</td><td><b>sqlite3_open(const char *filename, sqlite3 **ppDb)</b>
+<p>This routine opens a connection to an SQLite database file and returns a database connection object to be used by other SQLite routines.</p>
+<p>If the <i>filename</i> argument is NULL or ':memory:', sqlite3_open() will create an in-memory database in RAM that lasts only for the duration of the session. <p>If filename is not NULL, sqlite3_open() attempts to open the database file by using its value. If no file by that name exists, sqlite3_open() will open a new database file by that name.</p>
+</td></tr>
+<tr><td>2</td><td><b>sqlite3_exec(sqlite3*, const char *sql, sqlite_callback, void *data, char **errmsg)</b>
+<p>This routine provides a quick, easy way to execute SQL commands provided by sql argument which can consist of more than one SQL command.</p>
+<p>Here, first argument <i>sqlite3</i> is open database object, <i>sqlite_callback</i> is a call back for which <i>data</i> is the 1st argument and errmsg will be return to capture any error raised by the routine.</p>
+<p>The sqlite3_exec() routine parses and executes every command given in the <b>sql</b> argument until it reaches the end of the string or encounters an error.</p>
+</td></tr>
+<tr><td>3</td><td><b>sqlite3_close(sqlite3*)</b>
+<p>This routine closes a database connection previously opened by a call to sqlite3_open(). All prepared statements associated with the connection should be finalized prior to closing the connection.</p>
+<p>If any queries remain that have not been finalized, sqlite3_close() will return SQLITE_BUSY with the error message Unable to close due to unfinalized statements.</p></td></tr>
+</table>
+<h2>Connecting To Database</h2>
+<p>Following C code segment shows how to connect to an existing database. If database does not exist, then it will be created and finally a database object will be returned.</p>
+<pre class="prettyprint notranslate">
+#include &lt;stdio.h&gt;
+#include &lt;sqlite3.h&gt; 
+
+int main(int argc, char* argv[])
+{
+   sqlite3 *db;
+   char *zErrMsg = 0;
+   int rc;
+
+   rc = sqlite3_open("test.db", &db);
+
+   if( rc ){
+      fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+      return(0);
+   }else{
+      fprintf(stderr, "Opened database successfully\n");
+   }
+   sqlite3_close(db);
+}
+</pre>
+<p>Now, let's compile and run above program to create our database <b>test.db</b> in the current directory. You can change your path as per your requirement.</p>
+<pre class="prettyprint notranslate">
+$gcc test.c -l sqlite3
+$./a.out
+Opened database successfully
+</pre>
+<p>If you are going to use C++ source code, then you can compile your code as follows:</p>
+<pre class="prettyprint notranslate">
+$g++ test.c -l sqlite3
+</pre>
+<p>Here we are linking our program with sqlite3 library to provide required functions to C program. This will create a database file test.db in your directory and you will have the result something as follows:</p>
+<pre class="prettyprint notranslate">
+-rwxr-xr-x. 1 root root 7383 May  8 02:06 a.out
+-rw-r--r--. 1 root root  323 May  8 02:05 test.c
+-rw-r--r--. 1 root root    0 May  8 02:06 test.db
+</pre>
+<h2>Create a Table</h2>
+<p>Following C code segment will be used to create a table in previously created database:</p>
+<pre class="prettyprint notranslate">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sqlite3.h&gt; 
+
+static int callback(void *NotUsed, int argc, char **argv, char **azColName){
+   int i;
+   for(i=0; i&lt;argc; i++){
+      printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+   }
+   printf("\n");
+   return 0;
+}
+
+int main(int argc, char* argv[])
+{
+   sqlite3 *db;
+   char *zErrMsg = 0;
+   int  rc;
+   char *sql;
+
+   /* Open database */
+   rc = sqlite3_open("test.db", &db);
+   if( rc ){
+      fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+      return(0);
+   }else{
+      fprintf(stdout, "Opened database successfully\n");
+   }
+
+   /* Create SQL statement */
+   sql = "CREATE TABLE COMPANY("  \
+         "ID INT PRIMARY KEY     NOT NULL," \
+         "NAME           TEXT    NOT NULL," \
+         "AGE            INT     NOT NULL," \
+         "ADDRESS        CHAR(50)," \
+         "SALARY         REAL );";
+
+   /* Execute SQL statement */
+   rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
+   if( rc != SQLITE_OK ){
+   fprintf(stderr, "SQL error: %s\n", zErrMsg);
+      sqlite3_free(zErrMsg);
+   }else{
+      fprintf(stdout, "Table created successfully\n");
+   }
+   sqlite3_close(db);
+   return 0;
+}
+</pre>
+<p>When above program is compiled and executed, it will create COMPANY table in your test.db and final listing of the file will be as follows:</p>
+<pre class="prettyprint notranslate">
+-rwxr-xr-x. 1 root root 9567 May  8 02:31 a.out
+-rw-r--r--. 1 root root 1207 May  8 02:31 test.c
+-rw-r--r--. 1 root root 3072 May  8 02:31 test.db
+</pre>
+<h2>INSERT Operation</h2>
+<p>Following C code segment shows how we can create records in our COMPANY table created in above example:</p>
+<pre class="prettyprint notranslate">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sqlite3.h&gt; 
+
+static int callback(void *NotUsed, int argc, char **argv, char **azColName){
+   int i;
+   for(i=0; i&lt;argc; i++){
+      printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+   }
+   printf("\n");
+   return 0;
+}
+
+int main(int argc, char* argv[])
+{
+   sqlite3 *db;
+   char *zErrMsg = 0;
+   int rc;
+   char *sql;
+
+   /* Open database */
+   rc = sqlite3_open("test.db", &db);
+   if( rc ){
+      fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+      return(0);
+   }else{
+      fprintf(stderr, "Opened database successfully\n");
+   }
+
+   /* Create SQL statement */
+   sql = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) "  \
+         "VALUES (1, 'Paul', 32, 'California', 20000.00 ); " \
+         "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) "  \
+         "VALUES (2, 'Allen', 25, 'Texas', 15000.00 ); "     \
+         "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)" \
+         "VALUES (3, 'Teddy', 23, 'Norway', 20000.00 );" \
+         "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)" \
+         "VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00 );";
+
+   /* Execute SQL statement */
+   rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
+   if( rc != SQLITE_OK ){
+      fprintf(stderr, "SQL error: %s\n", zErrMsg);
+      sqlite3_free(zErrMsg);
+   }else{
+      fprintf(stdout, "Records created successfully\n");
+   }
+   sqlite3_close(db);
+   return 0;
+}
+</pre>
+<p>When above program is compiled and executed, it will create given records in COMPANY table and will display following two line:</p>
+<pre class="prettyprint notranslate">
+Opened database successfully
+Records created successfully
+</pre>
+<h2>SELECT Operation</h2>
+<p>Before we proceed with actual example to fetch records, let me give a little detail about the callback function, which we are using in our examples. This callback provides a way to obtain results from SELECT statements. It has the following declaration:
+<pre class="prettyprint notranslate">
+typedef int (*sqlite3_callback)(
+void*,    /* Data provided in the 4th argument of sqlite3_exec() */
+int,      /* The number of columns in row */
+char**,   /* An array of strings representing fields in the row */
+char**    /* An array of strings representing column names */
+);
+</pre>
+<p>If above callback is provided in sqlite_exec() routine as the third argument, SQLite will call the this callback function for each record processed in each SELECT statement executed within the SQL argument.</p>
+<p>Following C code segment shows how we can fetch and display records from our COMPANY table created in above example:</p>
+<pre class="prettyprint notranslate">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sqlite3.h&gt; 
+
+static int callback(void *data, int argc, char **argv, char **azColName){
+   int i;
+   fprintf(stderr, "%s: ", (const char*)data);
+   for(i=0; i&lt;argc; i++){
+      printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+   }
+   printf("\n");
+   return 0;
+}
+
+int main(int argc, char* argv[])
+{
+   sqlite3 *db;
+   char *zErrMsg = 0;
+   int rc;
+   char *sql;
+   const char* data = "Callback function called";
+
+   /* Open database */
+   rc = sqlite3_open("test.db", &db);
+   if( rc ){
+      fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+      return(0);
+   }else{
+      fprintf(stderr, "Opened database successfully\n");
+   }
+
+   /* Create SQL statement */
+   sql = "SELECT * from COMPANY";
+
+   /* Execute SQL statement */
+   rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
+   if( rc != SQLITE_OK ){
+      fprintf(stderr, "SQL error: %s\n", zErrMsg);
+      sqlite3_free(zErrMsg);
+   }else{
+      fprintf(stdout, "Operation done successfully\n");
+   }
+   sqlite3_close(db);
+   return 0;
+}
+</pre>
+<p>When above program is compiled and executed, it will produce the following result:</p>
+<pre class="prettyprint notranslate">
+Opened database successfully
+Callback function called: ID = 1
+NAME = Paul
+AGE = 32
+ADDRESS = California
+SALARY = 20000.0
+
+Callback function called: ID = 2
+NAME = Allen
+AGE = 25
+ADDRESS = Texas
+SALARY = 15000.0
+
+Callback function called: ID = 3
+NAME = Teddy
+AGE = 23
+ADDRESS = Norway
+SALARY = 20000.0
+
+Callback function called: ID = 4
+NAME = Mark
+AGE = 25
+ADDRESS = Rich-Mond
+SALARY = 65000.0
+
+Operation done successfully
+</pre>
+<h2>UPDATE Operation</h2>
+<p>Following C code segment shows how we can use UPDATE statement to update any record and then fetch and display updated records from our COMPANY table:</p>
+<pre class="prettyprint notranslate">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sqlite3.h&gt; 
+
+static int callback(void *data, int argc, char **argv, char **azColName){
+   int i;
+   fprintf(stderr, "%s: ", (const char*)data);
+   for(i=0; i&lt;argc; i++){
+      printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+   }
+   printf("\n");
+   return 0;
+}
+
+int main(int argc, char* argv[])
+{
+   sqlite3 *db;
+   char *zErrMsg = 0;
+   int rc;
+   char *sql;
+   const char* data = "Callback function called";
+
+   /* Open database */
+   rc = sqlite3_open("test.db", &db);
+   if( rc ){
+      fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+      return(0);
+   }else{
+      fprintf(stderr, "Opened database successfully\n");
+   }
+
+   /* Create merged SQL statement */
+   sql = "UPDATE COMPANY set SALARY = 25000.00 where ID=1; " \
+         "SELECT * from COMPANY";
+
+   /* Execute SQL statement */
+   rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
+   if( rc != SQLITE_OK ){
+      fprintf(stderr, "SQL error: %s\n", zErrMsg);
+      sqlite3_free(zErrMsg);
+   }else{
+      fprintf(stdout, "Operation done successfully\n");
+   }
+   sqlite3_close(db);
+   return 0;
+}
+</pre>
+<p>When above program is compiled and executed, it will produce the following result:</p>
+<pre class="prettyprint notranslate">
+Opened database successfully
+Callback function called: ID = 1
+NAME = Paul
+AGE = 32
+ADDRESS = California
+SALARY = 25000.0
+
+Callback function called: ID = 2
+NAME = Allen
+AGE = 25
+ADDRESS = Texas
+SALARY = 15000.0
+
+Callback function called: ID = 3
+NAME = Teddy
+AGE = 23
+ADDRESS = Norway
+SALARY = 20000.0
+
+Callback function called: ID = 4
+NAME = Mark
+AGE = 25
+ADDRESS = Rich-Mond
+SALARY = 65000.0
+
+Operation done successfully
+</pre>
+<h2>DELETE Operation</h2>
+<p>Following C code segment shows how we can use DELETE statement to delete any record and then fetch and display remaining records from our COMPANY table:</p>
+<pre class="prettyprint notranslate">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sqlite3.h&gt; 
+
+static int callback(void *data, int argc, char **argv, char **azColName){
+   int i;
+   fprintf(stderr, "%s: ", (const char*)data);
+   for(i=0; i&lt;argc; i++){
+      printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+   }
+   printf("\n");
+   return 0;
+}
+
+int main(int argc, char* argv[])
+{
+   sqlite3 *db;
+   char *zErrMsg = 0;
+   int rc;
+   char *sql;
+   const char* data = "Callback function called";
+
+   /* Open database */
+   rc = sqlite3_open("test.db", &db);
+   if( rc ){
+      fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+      return(0);
+   }else{
+      fprintf(stderr, "Opened database successfully\n");
+   }
+
+   /* Create merged SQL statement */
+   sql = "DELETE from COMPANY where ID=2; " \
+         "SELECT * from COMPANY";
+
+   /* Execute SQL statement */
+   rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
+   if( rc != SQLITE_OK ){
+      fprintf(stderr, "SQL error: %s\n", zErrMsg);
+      sqlite3_free(zErrMsg);
+   }else{
+      fprintf(stdout, "Operation done successfully\n");
+   }
+   sqlite3_close(db);
+   return 0;
+}
+</pre>
+<p>When above program is compiled and executed, it will produce the following result:</p>
+<pre class="prettyprint notranslate">
+Opened database successfully
+Callback function called: ID = 1
+NAME = Paul
+AGE = 32
+ADDRESS = California
+SALARY = 20000.0
+
+Callback function called: ID = 3
+NAME = Teddy
+AGE = 23
+ADDRESS = Norway
+SALARY = 20000.0
+
+Callback function called: ID = 4
+NAME = Mark
+AGE = 25
+ADDRESS = Rich-Mond
+SALARY = 65000.0
+
+Operation done successfully
+</pre>
+<hr />
+<div class="pre-btn">
+<a href="/sqlite/sqlite_useful_functions.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+</div>
+<div class="print-btn center">
+<a href="/cgi-bin/printpage.cgi" target="_blank"><i class="icon icon-print big-font"></i> Print</a>
+</div>
+<div class="pdf-btn">
+<a href="/sqlite/pdf/sqlite_c_cpp.pdf" title="SQLite C/C++ Tutorial" target="_blank"><i class="icon icon-file-pdf-o big-font"></i> PDF</a>
+</div>
+<div class="nxt-btn">
+<a href="/sqlite/sqlite_java.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+</div>
+<hr />
+<!-- PRINTING ENDS HERE -->
+<div class="bottomgooglead">
+<div class="bottomadtag">Advertisements</div>
+<script type="text/javascript"><!--
+var width = 580;
+var height = 400;
+var format = "580x400_as";
+if( window.innerWidth < 468 ){
+   width = 300;
+   height = 250;
+   format = "300x250_as";
+}
+google_ad_client = "pub-7133395778201029";
+google_ad_width = width;
+google_ad_height = height;
+google_ad_format = format;
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-3" id="rightbar">
+<div class="simple-ad">
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://www.facebook.com/sharer.php?u=' + 'http://www.tutorialspoint.com/sqlite/sqlite_c_cpp.htm','sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/facebookIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://twitter.com/share?url=' + 'http://www.tutorialspoint.com/sqlite/sqlite_c_cpp.htm','sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/twitterIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://www.linkedin.com/cws/share?url=' + 'http://www.tutorialspoint.com/sqlite/sqlite_c_cpp.htm&amp;title='+ document.title,'sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/linkedinIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://plus.google.com/share?url=http://www.tutorialspoint.com/sqlite/sqlite_c_cpp.htm','sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/googlePlusIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://www.stumbleupon.com/submit?url=http://www.tutorialspoint.com/sqlite/sqlite_c_cpp.htm&amp;title='+ document.title,'sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/StumbleUponIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://reddit.com/submit?url=http://www.tutorialspoint.com/sqlite/sqlite_c_cpp.htm&amp;title='+ document.title,'sharer','toolbar=0,status=0,width=626,height=656,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/reddit.jpg" alt="img" />
+</a>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 300;
+google_ad_height = 600;
+google_ad_format = "300x600_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2537027957187252";
+/* Right Side Ad */
+google_ad_slot = "right_side_ad";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer-copyright">
+<div class="container">
+<div class="row">
+<div class="col-md-1">
+<a href="index.htm" class="logo"> <img alt="Tutorials Point" class="img-responsive" src="/scripts/img/logo-footer.png"> </a>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <nav id="sub-menu">
+      <ul>
+         <li><a href="/about/tutorials_writing.htm">Write for us</a></li>
+         <li><a href="/about/faq.htm">FAQ's</a></li>
+         <li><a href="/about/about_helping.htm">Helping</a></li>
+         <li><a href="/about/contact_us.htm">Contact</a></li>
+      </ul>
+   </nav>
+</div>
+<div class="col-md-3 col-sm-12 col-xs-12">
+<p>&copy; Copyright 2016. All Rights Reserved.</p>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <div class="news-group">
+      <input type="text" class="form-control-foot search" name="textemail" id="textemail" autocomplete="off" placeholder="Enter email for newsletter" onfocus="if (this.value == 'Enter email for newsletter...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Enter email for newsletter...';}">
+      <span class="input-group-btn"> <button class="btn btn-default btn-footer" id="btnemail" type="submit" onclick="javascript:void(0);">go</button> </span>
+      <div id="newsresponse"></div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Libs -->
+<script type="text/javascript" src="/theme/js/custom-min.js"></script>
+<script src="https://www.google-analytics.com/urchin.js">
+</script>
+<script type="text/javascript">
+_uacct = "UA-232293-6";
+urchinTracker();
+$('.pg-icon').click(function(){
+   $('.wrapLoader').show();
+});
+</script>
+</div>
+</body>
+</html>
