@@ -111,9 +111,9 @@ void Customer_funct(void* sock)
     pthread_mutex_init(&SearchInfoLock, NULL);
     pthread_mutex_init(&updateLock, NULL);
 
-    //add_column();
-    //create_customer_acc();
-    //create_booking_table();
+ //   add_column();
+  //  create_customer_acc();
+  //  create_booking_table();
     int o = sqlite3_threadsafe();
     printf("sqlite_threadsafe customer: %d\n",o);
     while (true) {
@@ -207,9 +207,10 @@ void Customer_funct(void* sock)
                 memcpy(&temp[9+strlen(username)], temp2, strlen(temp2));
                 point += sprintf(point,"%s",temp);
                 encrypt = Encryypt(point);
+                printf("encrypt = %s\n",encrypt);
                 n1=write(ssock,encrypt,strlen(encrypt));
                 if (n1 <= 0){
-                    errexit("ERROR writing to socket\n");
+                    errexit("ERROR writing to socket here\n");
                 }
                 printf("%s",rClientMsg);
                 bzero(fromclient,sizeof(fromclient));

@@ -82,7 +82,7 @@ int TCPclient(const char *host, const char *service)
                 server_buffer[strlen(server_buffer) - 1] = '\0';
             encrypt = Encrypt(server_buffer);
         }else{
-            printf("Error readng from the socket");
+            printf("Error readng from the socket\n");
             return 0;
         }
     }

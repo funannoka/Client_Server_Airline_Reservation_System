@@ -1,0 +1,283 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B33FE5FE21CF7C6800B86BCE /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = B33FE5FD21CF7C6800B86BCE /* makefile */; };
+		B368FD671DC79E540058F21D /* connectsock.c in Sources */ = {isa = PBXBuildFile; fileRef = B368FD621DC79E540058F21D /* connectsock.c */; };
+		B368FD681DC79E540058F21D /* connectTCP.c in Sources */ = {isa = PBXBuildFile; fileRef = B368FD631DC79E540058F21D /* connectTCP.c */; };
+		B368FD691DC79E540058F21D /* errexit.c in Sources */ = {isa = PBXBuildFile; fileRef = B368FD641DC79E540058F21D /* errexit.c */; };
+		B3E7B7651DD3F80100FEC3C1 /* tcpclient.c in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B7641DD3F80100FEC3C1 /* tcpclient.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B368FD561DC79DE40058F21D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B33FE5FD21CF7C6800B86BCE /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
+		B368FD581DC79DE40058F21D /* tcpclient_airline_project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tcpclient_airline_project; sourceTree = BUILT_PRODUCTS_DIR; };
+		B368FD621DC79E540058F21D /* connectsock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = connectsock.c; sourceTree = "<group>"; };
+		B368FD631DC79E540058F21D /* connectTCP.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = connectTCP.c; sourceTree = "<group>"; };
+		B368FD641DC79E540058F21D /* errexit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = errexit.c; sourceTree = "<group>"; };
+		B3E7B7641DD3F80100FEC3C1 /* tcpclient.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcpclient.c; sourceTree = "<group>"; };
+		B3F1612A1DF9BCB2004BA7D6 /* encrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encrypt.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B368FD551DC79DE40058F21D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B368FD4F1DC79DE40058F21D = {
+			isa = PBXGroup;
+			children = (
+				B368FD5A1DC79DE40058F21D /* tcpclient_airline_project */,
+				B368FD591DC79DE40058F21D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B368FD591DC79DE40058F21D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B368FD581DC79DE40058F21D /* tcpclient_airline_project */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B368FD5A1DC79DE40058F21D /* tcpclient_airline_project */ = {
+			isa = PBXGroup;
+			children = (
+				B33FE5FD21CF7C6800B86BCE /* makefile */,
+				B3F1612A1DF9BCB2004BA7D6 /* encrypt.h */,
+				B3E7B7641DD3F80100FEC3C1 /* tcpclient.c */,
+				B368FD621DC79E540058F21D /* connectsock.c */,
+				B368FD631DC79E540058F21D /* connectTCP.c */,
+				B368FD641DC79E540058F21D /* errexit.c */,
+			);
+			path = tcpclient_airline_project;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B368FD571DC79DE40058F21D /* tcpclient_airline_project */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B368FD5F1DC79DE40058F21D /* Build configuration list for PBXNativeTarget "tcpclient_airline_project" */;
+			buildPhases = (
+				B368FD541DC79DE40058F21D /* Sources */,
+				B368FD551DC79DE40058F21D /* Frameworks */,
+				B368FD561DC79DE40058F21D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tcpclient_airline_project;
+			productName = tcpclient_airline_project;
+			productReference = B368FD581DC79DE40058F21D /* tcpclient_airline_project */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B368FD501DC79DE40058F21D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Ifunanya Nnoka";
+				TargetAttributes = {
+					B368FD571DC79DE40058F21D = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = B368FD531DC79DE40058F21D /* Build configuration list for PBXProject "tcpclient_airline_project" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B368FD4F1DC79DE40058F21D;
+			productRefGroup = B368FD591DC79DE40058F21D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B368FD571DC79DE40058F21D /* tcpclient_airline_project */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B368FD541DC79DE40058F21D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3E7B7651DD3F80100FEC3C1 /* tcpclient.c in Sources */,
+				B368FD671DC79E540058F21D /* connectsock.c in Sources */,
+				B368FD691DC79E540058F21D /* errexit.c in Sources */,
+				B368FD681DC79E540058F21D /* connectTCP.c in Sources */,
+				B33FE5FE21CF7C6800B86BCE /* makefile in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B368FD5D1DC79DE40058F21D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B368FD5E1DC79DE40058F21D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B368FD601DC79DE40058F21D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B368FD611DC79DE40058F21D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B368FD531DC79DE40058F21D /* Build configuration list for PBXProject "tcpclient_airline_project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B368FD5D1DC79DE40058F21D /* Debug */,
+				B368FD5E1DC79DE40058F21D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B368FD5F1DC79DE40058F21D /* Build configuration list for PBXNativeTarget "tcpclient_airline_project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B368FD601DC79DE40058F21D /* Debug */,
+				B368FD611DC79DE40058F21D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B368FD501DC79DE40058F21D /* Project object */;
+}

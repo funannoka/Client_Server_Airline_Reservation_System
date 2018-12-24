@@ -234,23 +234,23 @@ void create_UID_store(void)
 
 char *hash_genn_md5(const char *field, int len){
     int i;
-    MD5_CTX p;
-    unsigned char digest[MD5_DIGEST_LENGTH];
+    CC_MD5_CTX p;
+    unsigned char digest[CC_MD5_DIGEST_LENGTH];
     char *hash = (char*)malloc(33);
     
-    MD5_Init(&p);
+    CC_MD5_Init(&p);
     while (len > 0) {
         if (len > 512) {
-            MD5_Update(&p, field, 512);
+            CC_MD5_Update(&p, field, 512);
         } else {
-            MD5_Update(&p, field, len);
+            CC_MD5_Update(&p, field, len);
         }
         len -= 512;
         field += 512;
     }
-    MD5_Final(digest, &p);
+    CC_MD5_Final(digest, &p);
     for (i = 0; i < sizeof(digest); ++i) {
-        snprintf(&(hash[i*2]), MD5_DIGEST_LENGTH*2,"%02x",(unsigned int)digest[i]);
+        snprintf(&(hash[i*2]), CC_MD5_DIGEST_LENGTH*2,"%02x",(unsigned int)digest[i]);
     }
     return hash;
 }

@@ -353,6 +353,7 @@ void system_admin(void* sock){
     else
     fprintf(stderr, "Database opened successfully\n");
     sem_init(&sock_lock_db_call_result,0,1);
+    //sem_t * sem_open(const char *, int, ...);
     int ssock= (int) sock;
     int n1;
     char  *paswdd_hash;
