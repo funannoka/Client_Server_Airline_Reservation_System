@@ -206,7 +206,7 @@ void Customer_funct(void* sock)
                 memcpy(&temp[9], username, strlen(username));
                 memcpy(&temp[9+strlen(username)], temp2, strlen(temp2));
                 point += sprintf(point,"%s",temp);
-                encrypt = Encryypt(point);
+                encrypt = Encryypt(toclient);
                 printf("encrypt = %s\n",encrypt);
                 n1=write(ssock,encrypt,strlen(encrypt));
                 if (n1 <= 0){

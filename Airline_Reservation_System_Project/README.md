@@ -4,21 +4,21 @@
 > 2. GNU Compiler
 ## Server
 ### Code Compilation:
-> $ ``` shell
+> $ ``` 
     make
     ```
 ### Arguments Passed on Launch:
->$``` shell
+>$``` 
     ./output 5501
     ```
 
 ## Client
 ### Code Compilation:
->$ ``` shell
+>$ ``` 
     make
     ```
 ### Arguments Passed on Launch:
->$``` shell
+>$``` 
     ./output 127.0.0.1 5501
     ```
 
